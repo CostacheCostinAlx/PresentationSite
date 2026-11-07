@@ -18,18 +18,22 @@ body {
     justify-content: space-between;
     align-items: flex-start;         
 }
+.content-wrapper img {
+    width: 35.3em;
+}
+
 .contact-form {
     display: flex;
-    flex: 1 1 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10em auto 0;
     box-sizing: border-box;
 
-    width: 80em;
+    /*width: 80em; BEFORE */
+    width: 60em;
     height:60em;
-    padding: 48px 40px;
+    padding: 40px 40px;
     background-color: #0c0505;
     border: 1px solid rgba(255, 12, 12, 0.795);
     border-radius: 20px;
@@ -56,21 +60,52 @@ body {
     flex:1;
     flex-direction: column;
     gap: 20px;
+    width: fit-content;
     align-items: center;
     font-size: 18px;
 }
  
-.contact-fields input,
-.contact-fields textarea {
+.contact-fields input{
     box-sizing: border-box;
-    width: 100%;
+    max-width: 30em;
+    width: 0;
+    min-width: 100%;
+
     padding: 1.25rem 1.5rem;
+    
     background: transparent;
     color: #e8e6d4;
+
     border: 1px solid rgba(255, 12, 12, 0.5);
     border-radius: 0.5rem;
+
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.75rem;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+    
+}
+.contact-fields textarea {
+    box-sizing: border-box;
+    width: 30em;                
+    min-width: 12em;            
+    min-height: 8rem;
+    max-height: 23em;
+    max-width: 30em;
+    resize: both;               
+    display: block;
+    resize: both; 
+    padding: 1.25rem 1.5rem;
+    
+    background: transparent;
+    color: #e8e6d4;
+
+    border: 1px solid rgba(255, 12, 12, 0.5);
+    border-radius: 0.5rem;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.75rem;
+
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -120,10 +155,10 @@ body {
     display:flex;
     position:sticky;
     top:0;
-    overflow:hidden;
+    
     flex-direction: row;    
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
     padding-top: 1em;
     width:100%;
@@ -142,13 +177,22 @@ body {
 }
 .header-container button:hover{
 
-    cursor:pointer;
+    cursor:pointer;             
     color: #2bff88;
     border-color: #2bff88;
-    box-shadow: 0 0 rem rgba(43, 255, 136, 0.3);
+    transform: translateY(-0.125rem);
+
+}
+/*EXCEPTION FOR THE ACTIVE PAGE BUTTON TO LOOK RIGHT */
+.active-page button{
+    font-size: 2.1em;     
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;           
+    font-weight: bold;
+    
+    color: #2bff88;
     transform: translateY(-0.125rem);
 }
-
+/*END OF EXCEPTION */
 /*Footer settings: */
 .footer-container {
     width: 100%;

@@ -17,6 +17,9 @@ body {
     align-items: flex-end;            
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+/*THIS PAGE SPECIFIC CSS*/
+
 /*Text styling + box: */
 .bio-wrapper{
     margin-top: 5em;
@@ -110,16 +113,16 @@ body {
     margin: 0 1em;         
     color: #cccccc;
 }
+/*END OF THIS PAGE SPECIFIC CSS*/
 
 /*Header settings:*/
 .header-container{
     display:flex;
     position:sticky;
     top:0;
-    overflow:hidden;
     flex-direction: row;    
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
     padding-top: 1em;
     width:100%;
@@ -142,10 +145,19 @@ body {
     cursor:pointer;             
     color: #2bff88;
     border-color: #2bff88;
-    box-shadow: 0 0 1rem rgba(43, 255, 136, 0.3);
     transform: translateY(-0.125rem);
 
 }
+/*EXCEPTION FOR THE ACTIVE PAGE BUTTON TO LOOK RIGHT */
+.active-page button{
+    font-size: 2.1em;     
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;           
+    font-weight: bold;
+    
+    color: #2bff88;
+    transform: translateY(-0.125rem);
+}
+/*END OF EXCEPTION */
 /*Footer settings: */
 .footer-container {
     width: 100%;
