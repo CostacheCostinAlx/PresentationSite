@@ -2,18 +2,19 @@ html {
     min-height: 100%;
 }
 body {
+    display:flex;
+    flex-direction: column;
     margin: 0;
     background-color: black;
     width: 100%;
     min-height: 100vh;               
-    background-size:contain;         /*acopera tot body ul*/    
-    background-position: fixed;     /*centreaza imaginea*/
+    background-size:contain;         /*acopera tot body ul*/        
     background-repeat: no-repeat;    /* nu o repeta*/
 }
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: flex-end;            
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -25,25 +26,29 @@ body {
     margin-top: 5em;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;        /* mereu 50% stanga / 50% dreapta */
     width:100%;
     height: auto;
 }
 .bio-wrapper img{
-    flex: 0 0 50%;       
-    height:70em;
-    width:100%; 
+    flex: 0 0 50%;            /* jumatatea din stanga */
+    height: 45em;             /* in em, ca sa scaleze la fel ca textul (nu in vh) */
+    max-width: 50%;
+    margin-top:2em;
     object-fit:contain;
     object-position: center;
     min-width: 0;
 
 }
 .biography-box {
-    flex: 1;                  
+    flex: 0 0 calc(50% - 4em);  /* jumatatea din dreapta (minus margin-right) */
     min-width: 0;
     box-sizing: border-box;
-    margin-top: 8em;         
-    height: 40em;
+    margin-top: 3em;         
+    min-height: 45em;         /* in em; creste daca textul e mai lung */
+    height: auto;
     margin-right: 4em;
+    padding: 2em;
 
     display: flex;
     flex-direction: column;
@@ -58,26 +63,34 @@ body {
     
 }
 .map-wrapper{
+    flex: 0 0 50%;            /* jumatatea din dreapta */
+    min-width: 0;
+    box-sizing: border-box;
+    align-self:center;
     display:flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height: 100%;
+    margin-top:5em;
+    width:50%;
+    height: auto;
 
 }
 .bio2-wrapper{
     display:flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
     width:100%;
     height:auto;
-    gap: 1em;
+    gap: 0;                   /* gap-ul facea suma sa depaseasca 100% */
 
     margin-bottom: 2em;
 }
 .biography-wrapper2{
-    width:100%;
+    flex: 0 0 50%;            /* jumatatea din stanga */
+    min-width: 0;
+    width:50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,11 +102,11 @@ body {
     justify-content: center;
     gap: 1em;
 
+    box-sizing: border-box;
     margin-top: 10em;
-    background-color: rgba(18, 18, 18, 0.85);
     width: 93%;
-    height: 40em;
-
+    min-height: 40em;
+    padding: 2em;
     
     background-color: rgba(18, 18, 18, 0.5);
     border-radius: 100px;
@@ -102,15 +115,20 @@ body {
 }
 
 .Biotitle {
-    font-size: 50px;
-    
+    font-size: 3.125rem;      /* 50px, scaleaza cu zoom-ul browserului */
+    max-width: 100%;
     align-self: center;
+    text-align: center;
+    overflow-wrap: anywhere;
     color: #ff002b;
 }
 
 .Biocontent {
-    font-size: 25px;
+    font-size: 1.5625rem;     /* 25px */
     margin: 0 1em;         
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;  /* sparge si cuvintele lungi fara spatii */
     color: #cccccc;
 }
 /*END OF THIS PAGE SPECIFIC CSS*/
@@ -121,12 +139,14 @@ body {
     position:sticky;
     top:0;
     flex-direction: row;    
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 
-    padding-top: 1em;
+    box-sizing: border-box;
+    padding: 1em 0.5em 0 0.5em;
     width:100%;
-    height:3em;
+    min-height:3em;
     
     background-color:black;
     border-bottom: 3px solid rgba(255, 12, 12, 0.795);
@@ -138,13 +158,12 @@ body {
     color:#ff002b;
     border: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
+    font-size: 1.875rem;      /* 30px */
 }
 .header-container button:hover{
 
     cursor:pointer;             
     color: #2bff88;
-    border-color: #2bff88;
     transform: translateY(-0.125rem);
 
 }
@@ -161,7 +180,7 @@ body {
 /*Footer settings: */
 .footer-container {
     width: 100%;
-    height: 5em;
+    min-height: 5em;
     box-sizing: border-box;
     margin-top:2em;
     display: flex;
@@ -174,7 +193,7 @@ body {
 }
 .footer-socials{
     display: flex;
-    align-items: space-between;
+    align-items: center;
     gap:2rem;  
     margin-left: 0.5em;
     margin-top: 0.3em;
@@ -182,12 +201,12 @@ body {
 }
 .footer-logo{
     display: flex;
-    align-items: right;
+    align-items: center;
     margin-right: 0.5em;
 }
 .footer-container img{
 
     width: 3em;
-    justify-content: space-between;
+    max-width: 100%;
     
 }

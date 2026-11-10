@@ -2,13 +2,15 @@ html {
     min-height: 100%;
 }
 body {
+    display:flex;
+    flex-direction: column;
     margin: 0;
     background-color: black;
     width: 100%;
     min-height: 100vh;               
-    background-size:contain;         /*acopera tot body ul*/    
-    background-position: fixed;     /*centreaza imaginea*/
-    background-repeat: no-repeat;    /* nu o repeta*/
+    background-size:contain;        
+    background-position: fixed;     
+    background-repeat: no-repeat;    
 }
 
 /*Text styling + box: */
@@ -35,8 +37,9 @@ body {
 }
 .cv-image-wrapper img{
     flex: 0 0 45%;       
-    height:50em;
-    width:100%; 
+    height:50%;
+    max-width:50%;
+    align-self:center; 
     object-fit:contain;
     object-position: center;
     min-width: 0;
@@ -44,8 +47,8 @@ body {
 .cv-viewer{
     flex: 1;
     margin-left: 6em;
-    width:80%;
-    height:70em;
+    max-width:100%;
+    height:80vh;
     border: none;
     
 }
@@ -122,15 +125,13 @@ body {
 /*END OF EXCEPTION */
 /*Footer settings: */
 .footer-container {
+    width: 100%;
+
+    box-sizing: border-box;
     display: flex;
+    padding: 1em;
     justify-content: space-between;
     align-items: center;
-    
-    width: 100%;
-    height: 5em;
-    box-sizing: border-box;
-    margin-top:2em;
-    
     gap: 3em;
 
     background-color: transparent;
